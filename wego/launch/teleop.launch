@@ -1,7 +1,7 @@
 <launch>
     <!-- arguments -->
     <arg name="ekf" default="true" />
-
+    <arg name="viz" default="false" />
 
     <!-- for the TF settings -->
     <node pkg="tf2_ros" type="static_transform_publisher" name="base_link_to_imu"
@@ -24,5 +24,8 @@
     </group>
 
     <!-- for the visulization -->
-    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find wego)/rviz/display.rviz" />
+    <group if="$(arg viz)">
+        <node name="rviz" pkg="rviz" type="rviz" args="-d $(find wego)/rviz/display.rviz" />
+    </group>
+    
 </launch>
