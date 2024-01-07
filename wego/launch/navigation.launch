@@ -6,5 +6,8 @@
     <!-- localization -->
     <include file="$(find wego_2d_nav)/launch/amcl.launch" />
 
+    <!-- mova_base -->
+    <include file="$(find wego_2d_nav)/launch/move_base.launch"/>
+
     <node name="rviz" pkg="rviz" type="rviz" args="-d $(find wego)/rviz/navigation.rviz" />
 </launch>
